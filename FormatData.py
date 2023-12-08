@@ -10,6 +10,7 @@ file_path = './dataset/AWARE_Social_Networking.csv'  # 替换为你的文件路�
 df = pd.read_csv(file_path)
 
 # 添加判断条件：如果term中元素为N/A，则删除该行
+# 经过统计N/A的行占总数量的0.005806451612903226
 df = df[df['term'].notna()]
 
 # 将包含term内容的sentence中的term替换为"$T$"
