@@ -27,14 +27,14 @@ train_df, test_df = train_test_split(df, test_size=0.2, random_state=42)
 # # 如果需要保存到新的CSV文件
 # df.to_csv('output_file.csv', index=False)
 def FormatData(df, save_file): # save_file 保存后的名称
-    with open(save_file, "a", encoding='utf-8') as f: #
-        for index,row in df.iterrows():
+    with open(save_file, "a", encoding='utf-8') as f:  #
+        for index, row in df.iterrows():
             # print(index,type(row),row['code'],row['name'])
             # #对于每一行，通过列名访问对应的元素
             # print("-----")
-            term=row['term']
+            term = row['term']
             sentence = row['sentence']
-            sentiment=row['sentiment']
+            sentiment = row['sentiment']
             if len(term)<=0 or len(sentence)<=0 or len(sentiment)<=0:
                 continue
             if term in sentence:
@@ -49,8 +49,8 @@ def FormatData(df, save_file): # save_file 保存后的名称
 
     f.close()
 
-test_df_path = 'AWARE_Social_Networking.test.txt'
-train_df_path = 'AWARE_Social_Networking.train.txt'
+test_df_path = 'dataset\AWARE_Social_Networking.test.txt'
+train_df_path = 'dataset\AWARE_Social_Networking.train.txt'
 
 FormatData(test_df, test_df_path)
 FormatData(train_df, train_df_path)
